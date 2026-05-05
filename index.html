@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hey You</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  input, button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+
+  button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>hey [CA!] 👋</h2>
+  <p>
+    this is kinda random, but I wanted to talk to you about something<br>
+    and I feel like it’s better said directly<br><br>
+    nothing weird, I promise 😄
+  </p>
+
+  <p><b>pick a time that works for you:</b></p>
+
+  <input type="date" id="date">
+  <input type="time" id="time">
+
+  <button onclick="send()">Confirm</button>
+</div>
+
+<script>
+function send() {
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+
+  if (!date || !time) {
+    alert("pick both date and time 😄");
+    return;
+  }
+
+  const phone = "6285701037489"; // ganti nomor lo
+  const text = encodeURIComponent(
+    `I’m free on ${date} at ${time} 😊`
+  );
+
+  window.location.href = `https://wa.me/${phone}?text=${text}`;
+}
+</script>
+
+</body>
+</html>
